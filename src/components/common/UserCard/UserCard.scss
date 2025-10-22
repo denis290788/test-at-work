@@ -1,0 +1,153 @@
+.user-card {
+    width: 360px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+
+    &__content {
+        display: flex;
+        gap: 20px;
+        height: 100%;
+    }
+
+    &__info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-height: 120px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    &__username {
+        color: #22a0bc;
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        margin: 0;
+        word-break: break-word;
+    }
+
+    &__company {
+        font-family: "Manrope", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #000000;
+        margin: 0;
+    }
+
+    &__city {
+        font-family: "Manrope", sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #6b7280;
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    &__avatar-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__avatar {
+        width: 112px;
+        height: 120px;
+        border-radius: 8px;
+        object-fit: cover;
+        flex-shrink: 0;
+        transition: filter 0.3s ease;
+
+        &.grayscale {
+            filter: grayscale(100%);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .user-card {
+        width: 162px;
+        height: 242px;
+        padding: 16px;
+        border-radius: 16px;
+
+        &__content {
+            flex-direction: column;
+            gap: 16px;
+            height: 100%;
+        }
+
+        &__avatar-section {
+            align-items: center;
+        }
+
+        &__avatar {
+            width: 130px;
+            height: 120px;
+            border-radius: 8px;
+        }
+
+        &__info {
+            min-height: auto;
+            gap: 12px;
+            flex: 1;
+        }
+
+        &__header {
+            align-items: center;
+        }
+
+        &__username {
+            font-size: 18px;
+            flex: 1;
+        }
+
+        &__company {
+            font-size: 14px;
+        }
+
+        &__city {
+            font-size: 10px;
+            margin-top: auto;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .users-grid {
+        grid-template-columns: repeat(2, 162px);
+        justify-content: center;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .user-card {
+        width: 150px;
+
+        &__avatar {
+            width: 118px;
+        }
+    }
+
+    .users-grid {
+        grid-template-columns: repeat(2, 150px);
+        gap: 12px;
+    }
+}

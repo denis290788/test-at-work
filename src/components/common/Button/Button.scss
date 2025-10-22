@@ -1,0 +1,38 @@
+.button {
+    width: 170px;
+    height: 46px;
+    padding: 12px 42px;
+    border-radius: 50px;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+
+    background: #161616;
+    color: #fdfdfd;
+
+    &:hover:not(.disabled) {
+        background: #f4f4f4;
+        color: #595959;
+    }
+
+    &.disabled {
+        background: #dadada;
+        color: #9c9c9c;
+        cursor: not-allowed;
+
+        &:hover {
+            background: #dadada;
+            color: #9c9c9c;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .button {
+        width: 100%;
+        max-width: 287px;
+    }
+}

@@ -1,0 +1,49 @@
+.edit-user {
+    padding-top: 92px;
+
+    &__content {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 767px) {
+    .edit-user {
+        padding-top: 32px;
+
+        &__content {
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+        }
+    }
+}
+
+.success-modal {
+    text-align: center;
+    padding: 20px;
+
+    h3 {
+        font-family: "Manrope", sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: #22a0bc;
+    }
+
+    p {
+        font-family: "Manrope", sans-serif;
+        font-size: 16px;
+        color: #6b7280;
+    }
+}
+
+.error {
+    text-align: center;
+    padding: 40px;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    color: #ef4444;
+}

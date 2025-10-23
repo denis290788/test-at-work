@@ -1,6 +1,7 @@
 .form-group {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 
     label {
         font-family: "Manrope", sans-serif;
@@ -8,15 +9,20 @@
         font-size: 18px;
         color: #000000;
         margin-bottom: 10px;
+        line-height: 1.2;
     }
 }
 
 .input-wrapper {
     position: relative;
+    width: fit-content;
     display: inline-block;
+    width: 100%;
+    max-width: 420px;
 
     input {
-        width: 420px;
+        width: 100%;
+        max-width: 420px;
         height: 42px;
         padding: 0 40px 0 16px;
         border: 2px solid #dadada;
@@ -26,6 +32,7 @@
         transition: all 0.3s ease;
         background: #ffffff;
         outline: none;
+        box-sizing: border-box;
 
         &.error {
             border-color: #ef4444;
@@ -39,7 +46,7 @@
 
     .input-clear {
         position: absolute;
-        right: 16px;
+        right: 8px;
         top: 50%;
         transform: translateY(-50%);
         background: none;
@@ -55,7 +62,7 @@
         transition: color 0.3s ease;
 
         &:hover {
-            color: #161616;
+            color: #22a0bc;
         }
     }
 }
@@ -70,11 +77,14 @@
 @media (max-width: 767px) {
     .form-group {
         label {
-            font-size: 18px;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
     }
 
     .input-wrapper {
+        width: 100%;
+
         input {
             width: 100%;
             max-width: 287px;
@@ -85,6 +95,7 @@
                 font-size: 14px;
             }
         }
+
         .input-clear {
             right: 12px;
         }

@@ -2,15 +2,16 @@
     background: #fdfdfd;
     border-radius: 16px;
     width: 360px;
-    height: 813px;
     padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
+    flex-shrink: 0;
 
     &__avatar {
         width: 280px;
         height: 485px;
+        align-self: center;
 
         img {
             width: 100%;
@@ -24,25 +25,20 @@
         display: flex;
         flex-direction: column;
         flex: 1;
-    }
-
-    &__menu-item {
-        display: flex;
-        flex-direction: column;
+        gap: 20px;
     }
 
     &__menu-button {
+        width: 100%;
         background: none;
         border: none;
         cursor: pointer;
         text-align: left;
-        padding: 12px 0;
+        padding-bottom: 12px;
         font-family: "Manrope", sans-serif;
         font-size: 16px;
-        line-height: 100%;
-        letter-spacing: 0%;
         transition: all 0.3s ease;
-
+        border-bottom: 1px solid #dadada;
         font-weight: 500;
         color: #9c9c9c;
 
@@ -55,36 +51,51 @@
             color: #000000;
         }
     }
-
-    &__menu-divider {
-        height: 1px;
-        background-color: #dadada;
-        margin-bottom: 12px;
-    }
 }
 
 @media (max-width: 767px) {
     .user-settings {
-        width: 343px;
-        height: 435px;
+        width: 100%;
+        max-width: 343px;
         padding: 28px;
-        gap: 24px;
+        gap: 20px;
+        align-items: center;
 
         &__avatar {
-            width: 287px;
-            height: 187px;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+        }
 
-            img {
-                border-radius: 8px;
-            }
+        &__menu {
+            width: 100%;
+            gap: 24px;
         }
 
         &__menu-button {
             font-size: 14px;
-            padding: 10px 0;
+            padding-bottom: 8px;
 
             &.active {
                 font-weight: 500;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .user-settings {
+        max-width: 287px;
+        padding: 24px;
+
+        &__avatar {
+            width: 287px;
+            height: 187px;
+            padding: 0 24px;
+
+            img {
+                border-radius: 8px;
             }
         }
     }

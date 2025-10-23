@@ -1,24 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
-import { DotsIcon } from "../../icons/DotsIcon";
+import { DotsIcon } from "../../ui/icons/DotsIcon";
 import "./DropdownMenu.scss";
+import { useUserStore } from "../../../stores/userStore";
+import { useNavigate } from "react-router-dom";
+import type { UserCard as UserCardType } from "../../../types/user";
 
 interface DropdownMenuProps {
-    onEdit: () => void;
-    onArchive: () => void;
-    onHide: () => void;
-    onActivate?: () => void;
-    isArchived?: boolean;
+    user: UserCardType;
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
-    onEdit,
-    onArchive,
-    onHide,
-    onActivate,
-    isArchived = false,
-}) => {
+export const DropdownMenu: React.FC<DropdownMenuProps> = ({ user }) => {
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const { archiveUser, hideUser, activateUser } = useUserStore();
+    const navigate = useNavigate();
+
+    const isArchived = user.status === "archived";
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -28,17 +25,18 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         };
 
         document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const handleMenuToggle = () => {
-        setIsOpen(!isOpen);
+    const handleMenuToggle = () => setIsOpen((prev) => !prev);
+
+    const handleAction = (callback: () => void) => {
+        callback();
+        setIsOpen(false);
     };
 
-    const handleAction = (action: () => void) => {
-        action();
+    const handleEdit = () => {
+        navigate(`/edit/${user.id}`);
         setIsOpen(false);
     };
 
@@ -56,27 +54,24 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                     {isArchived ? (
                         <button
                             className="dropdown-menu__item"
-                            onClick={() => handleAction(onActivate!)}
+                            onClick={() => handleAction(() => activateUser(user.id))}
                         >
                             Активировать
                         </button>
                     ) : (
                         <>
-                            <button
-                                className="dropdown-menu__item"
-                                onClick={() => handleAction(onEdit)}
-                            >
+                            <button className="dropdown-menu__item" onClick={handleEdit}>
                                 Редактировать
                             </button>
                             <button
                                 className="dropdown-menu__item"
-                                onClick={() => handleAction(onArchive)}
+                                onClick={() => handleAction(() => archiveUser(user.id))}
                             >
                                 Архивировать
                             </button>
                             <button
                                 className="dropdown-menu__item"
-                                onClick={() => handleAction(onHide)}
+                                onClick={() => handleAction(() => hideUser(user.id))}
                             >
                                 Скрыть
                             </button>

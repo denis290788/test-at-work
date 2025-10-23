@@ -20,12 +20,19 @@ export const useUserStore = create<UserState>()(
             isLoading: false,
 
             setUsers: (users: User[]) => {
-                const userCards: UserCard[] = users.slice(0, 6).map((user) => ({
-                    ...user,
-                    status: "active",
-                    avatar: `../../public/Screenshot 2025-10-22 231159.png`,
-                }));
-                set({ users: userCards });
+                set((state) => {
+                    const userCards: UserCard[] = users.slice(0, 6).map((user) => {
+                        const existing = state.users.find((u) => u.id === user.id);
+
+                        return {
+                            ...user,
+                            status: existing?.status ?? "active",
+                            avatar: existing?.avatar ?? `/Screenshot 2025-10-22 231159.png`,
+                        };
+                    });
+
+                    return { users: userCards };
+                });
             },
 
             updateUser: (id: number, userData: Partial<UserCard>) => {

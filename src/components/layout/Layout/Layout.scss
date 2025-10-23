@@ -1,20 +1,13 @@
 .layout {
     min-height: 100vh;
-}
-
-.layout__main {
-    padding-top: 50px;
+    padding: 32px 16px 40px;
 
     @media (min-width: 376px) {
-        padding-top: 56px;
-    }
-
-    .layout__container {
-        padding: 0;
+        padding: 40px 16px 198px;
     }
 }
 
 .layout__container {
-    max-width: 100%;
+    max-width: 1160px;
     margin: 0 auto;
 }

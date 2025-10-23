@@ -1,12 +1,13 @@
 .user-form {
+    flex: 1;
     background: #fdfdfd;
     border-radius: 16px;
-    width: 760px;
-    height: 813px;
     padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 100%;
+    min-width: 0;
 
     h1 {
         font-family: "Manrope", sans-serif;
@@ -28,28 +29,78 @@
 
 .form-actions {
     display: flex;
-    gap: 16px;
-    margin-top: auto;
+    margin-top: 18px;
     justify-content: flex-start;
+}
+
+.form-button {
+    width: 170px;
+    height: 46px;
+    padding: 12px 42px;
+    border-radius: 50px;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+
+    background: #161616;
+    color: #fdfdfd;
+
+    &:hover:not(.disabled) {
+        background: #f4f4f4;
+        color: #595959;
+    }
+
+    &.disabled {
+        background: #dadada;
+        color: #9c9c9c;
+        cursor: not-allowed;
+
+        &:hover {
+            background: #dadada;
+            color: #9c9c9c;
+        }
+    }
 }
 
 @media (max-width: 767px) {
     .user-form {
-        width: 343px;
-        height: 737px;
+        width: 100%;
+        max-width: 343px;
         padding: 28px;
         gap: 20px;
+
+        &__form {
+            gap: 20px;
+        }
 
         h1 {
             font-size: 24px;
         }
-
-        &__divider {
-            margin: 16px 0;
-        }
     }
 
     .form-actions {
+        margin-top: 4px;
         justify-content: center;
+
+        button {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .user-form {
+        max-width: 287px;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 767px) {
+    .button {
+        width: 100%;
+        max-width: 287px;
     }
 }

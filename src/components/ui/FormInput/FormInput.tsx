@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./FormInput.scss";
+import { CancelIcon } from "../icons/CancelIcon";
 
 interface FormInputProps {
     id: string;
@@ -54,7 +55,7 @@ export const FormInput: React.FC<FormInputProps> = ({
                         onClick={handleClear}
                         onMouseDown={(e) => e.preventDefault()}
                     >
-                        ×
+                        <CancelIcon />
                     </button>
                 )}
             </div>

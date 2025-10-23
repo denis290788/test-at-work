@@ -6,8 +6,6 @@ interface UserSettingsProps {
         avatar: string;
         name: string;
     };
-    activeSection: string;
-    onSectionChange: (section: string) => void;
 }
 
 const menuItems = [
@@ -17,11 +15,8 @@ const menuItems = [
     { id: "security", label: "Безопасность" },
 ];
 
-export const UserSettings: React.FC<UserSettingsProps> = ({
-    user,
-    activeSection,
-    onSectionChange,
-}) => {
+export const UserSettings: React.FC<UserSettingsProps> = ({ user }) => {
+    const activeSection = "profile";
     return (
         <div className="user-settings">
             <div className="user-settings__avatar">
@@ -35,11 +30,10 @@ export const UserSettings: React.FC<UserSettingsProps> = ({
                             className={`user-settings__menu-button ${
                                 activeSection === item.id ? "active" : ""
                             }`}
-                            onClick={() => onSectionChange(item.id)}
+                            onClick={() => {}}
                         >
                             {item.label}
                         </button>
-                        <div className="user-settings__menu-divider" />
                     </div>
                 ))}
             </nav>

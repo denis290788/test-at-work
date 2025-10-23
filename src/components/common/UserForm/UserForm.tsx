@@ -1,53 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import "./UserForm.scss";
-import { FormInput } from "../Input/FormInput";
-import { Button } from "../Button/Button";
-
-const userSchema = z.object({
-    name: z
-        .string()
-        .min(2, "Имя должно содержать минимум 2 символа")
-        .max(64, "Имя должно содержать максимум 64 символа"),
-    username: z
-        .string()
-        .min(2, "Никнейм должен содержать минимум 2 символа")
-        .max(64, "Никнейм должен содержать максимум 64 символа"),
-    email: z.string().email("Некорректный email"),
-    city: z
-        .string()
-        .min(2, "Город должен содержать минимум 2 символа")
-        .max(64, "Город должен содержать максимум 64 символа"),
-    phone: z.string().regex(/^\d+$/, "Телефон должен содержать только цифры"),
-    companyName: z
-        .string()
-        .min(2, "Название компании должно содержать минимум 2 символа")
-        .max(64, "Название компании должно содержать максимум 64 символа"),
-});
-
-type UserFormData = z.infer<typeof userSchema>;
+import { FormInput } from "../../ui/FormInput/FormInput";
+import { userSchema, type UserFormData } from "./schema/userSchema";
+import { useUserStore } from "../../../stores/userStore";
+import type { User } from "../../../types/user";
+import { Modal } from "../../ui/Modal/Modal";
 
 interface UserFormProps {
-    user: {
-        id: number;
-        name: string;
-        username: string;
-        email: string;
-        address: {
-            city: string;
-        };
-        phone: string;
-        company: {
-            name: string;
-        };
-        avatar: string;
-    };
-    onSubmit: (data: UserFormData) => void;
+    user: User;
 }
 
-export const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
+export const UserForm: React.FC<UserFormProps> = ({ user }) => {
+    const { updateUser } = useUserStore();
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+
     const {
         handleSubmit,
         formState: { errors, isDirty },
@@ -67,10 +35,17 @@ export const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
     });
 
     const formValues = watch();
-    const isFormChanged = isDirty;
 
     const onFormSubmit = (data: UserFormData) => {
-        onSubmit(data);
+        updateUser(user.id, {
+            name: data.name,
+            username: data.username,
+            email: data.email,
+            address: { ...user.address, city: data.city },
+            phone: data.phone,
+            company: { ...user.company, name: data.companyName },
+        });
+        setShowSuccessModal(true);
     };
 
     const handleInputChange = (field: keyof UserFormData) => (value: string) => {
@@ -139,11 +114,17 @@ export const UserForm: React.FC<UserFormProps> = ({ user, onSubmit }) => {
                 />
 
                 <div className="form-actions">
-                    <Button type="submit" disabled={!isFormChanged}>
+                    <button
+                        type="submit"
+                        disabled={!isDirty}
+                        className={`form-button ${!isDirty ? "disabled" : ""}`}
+                    >
                         Сохранить
-                    </Button>
+                    </button>
                 </div>
             </form>
+
+            <Modal isOpen={showSuccessModal} />
         </div>
     );
 };

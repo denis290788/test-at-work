@@ -6,6 +6,7 @@ import "./EditUser.scss";
 import { UserForm } from "../../common/UserForm/UserForm";
 import { Loader } from "../../ui/Loader/Loader";
 import { BackIcon } from "../../ui/icons/BackIcon";
+import { BackMobileIcon } from "../../ui/icons/BackMobileIcon";
 
 export const EditUser: React.FC = () => {
     const navigate = useNavigate();
@@ -23,7 +24,8 @@ export const EditUser: React.FC = () => {
     return (
         <div className="edit-user">
             <button className="edit-user__back-button" onClick={() => navigate("/")}>
-                <BackIcon />
+                <BackIcon className="edit-user__back-icon--desktop" />
+                <BackMobileIcon className="edit-user__back-icon--mobile" />
                 <span>Назад</span>
             </button>
 

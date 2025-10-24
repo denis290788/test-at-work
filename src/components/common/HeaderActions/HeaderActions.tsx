@@ -23,7 +23,7 @@ export const HeaderActions: React.FC = () => {
                         className="header-actions__avatar-image"
                     />
                 </div>
-                <span className="header-actions__username">Denis29</span>
+                <span className="header-actions__username">Ivan1234</span>
             </div>
         </div>
     );

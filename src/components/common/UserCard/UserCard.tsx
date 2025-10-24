@@ -24,7 +24,6 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
                 <div className="user-card__info">
                     <div className="user-card__header">
                         <h3 className="user-card__username">{user.username}</h3>
-
                         <DropdownMenu user={user} />
                     </div>
 

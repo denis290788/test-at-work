@@ -23,7 +23,12 @@
             opacity: 0.7;
         }
 
-        svg {
+        .edit-user__back-icon--mobile {
+            display: none;
+        }
+
+        .edit-user__back-icon--desktop {
+            display: block;
             width: 20px;
             height: 20px;
         }
@@ -42,7 +47,18 @@
 @media (max-width: 767px) {
     .edit-user {
         &__back-button {
-            margin: 20px 0;
+            font-size: 16px;
+            margin: 8px 0;
+
+            .edit-user__back-icon--desktop {
+                display: none;
+            }
+
+            .edit-user__back-icon--mobile {
+                display: block;
+                width: 24px;
+                height: 24px;
+            }
         }
 
         &__content {

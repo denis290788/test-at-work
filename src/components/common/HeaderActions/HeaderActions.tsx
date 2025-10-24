@@ -18,7 +18,7 @@ export const HeaderActions: React.FC = () => {
             <div className="header-actions__profile">
                 <div className="header-actions__avatar">
                     <img
-                        src="/Screenshot 2025-10-22 231159.png"
+                        src="/test-at-work/Screenshot-2025-10-22-231159.png"
                         alt="Avatar"
                         className="header-actions__avatar-image"
                     />

@@ -27,7 +27,7 @@ export const useUserStore = create<UserState>()(
                         return {
                             ...user,
                             status: existing?.status ?? "active",
-                            avatar: existing?.avatar ?? `/Screenshot 2025-10-22 231159.png`,
+                            avatar: `/test-at-work/Screenshot-2025-10-22-231159.png`,
                         };
                     });
 

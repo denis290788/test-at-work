@@ -9,7 +9,7 @@ const queryClient = new QueryClient();
 function App() {
     return (
         <QueryClientProvider client={queryClient}>
-            <Router>
+            <Router basename="/test-at-work/">
                 <Layout>
                     <Routes>
                         <Route path="/" element={<Home />} />

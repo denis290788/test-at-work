@@ -1,69 +1,15 @@
 .user-card {
-    width: 360px;
     background: #ffffff;
     border-radius: 16px;
-    padding: 24px;
+    padding: 16px;
+    width: 162px;
+    height: 242px;
 
     &__content {
         display: flex;
-        gap: 20px;
-        height: 100%;
-    }
-
-    &__info {
-        padding-top: 5px;
-        flex: 1;
-        display: flex;
         flex-direction: column;
-        gap: 4px;
-        min-height: 120px;
-    }
-
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    &__username {
-        color: #22a0bc;
-        font-family: "Manrope", sans-serif;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        margin: 0;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 155px;
-    }
-
-    &__company {
-        font-family: "Manrope", sans-serif;
-        font-weight: 500;
-        font-size: 16px;
-        color: #595959;
-        margin: 0;
-
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    &__city {
-        font-family: "Manrope", sans-serif;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 100%;
-        letter-spacing: 0%;
-        color: #6b7280;
-        margin-top: auto;
-        display: flex;
-        align-items: center;
-        gap: 6px;
+        gap: 16px;
+        height: 100%;
     }
 
     &__avatar-section {
@@ -74,7 +20,7 @@
     }
 
     &__avatar {
-        width: 112px;
+        width: 130px;
         height: 120px;
         border-radius: 8px;
         object-fit: cover;
@@ -85,18 +31,73 @@
             filter: grayscale(100%);
         }
     }
+
+    &__info {
+        padding-top: 0;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-height: auto;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    &__username {
+        color: var(--color-accent);
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 100%;
+        margin: 0;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        flex: 1;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    &__company {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--color-secondary);
+        margin: 0;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__city {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 100%;
+        color: #6b7280;
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
     .user-card {
-        width: 162px;
-        height: 242px;
-        padding: 16px;
+        padding: 24px;
+        width: auto;
+        height: auto;
         border-radius: 16px;
 
         &__content {
-            flex-direction: column;
-            gap: 16px;
+            flex-direction: row;
+            gap: 20px;
             height: 100%;
         }
 
@@ -105,33 +106,36 @@
         }
 
         &__avatar {
-            width: 130px;
+            width: 112px;
             height: 120px;
-            border-radius: 8px;
         }
 
         &__info {
-            padding-top: 0;
-            min-height: auto;
+            padding-top: 5px;
+            min-height: 120px;
             gap: 4px;
             flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         &__header {
-            align-items: center;
+            align-items: flex-start;
         }
 
         &__username {
-            font-size: 18px;
+            font-size: 20px;
             flex: 1;
+            min-width: 0;
+            max-width: 155px;
         }
 
         &__company {
-            font-size: 14px;
+            font-size: 16px;
         }
 
         &__city {
-            font-size: 10px;
+            font-size: 14px;
             margin-top: auto;
         }
     }

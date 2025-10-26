@@ -14,9 +14,8 @@
         cursor: pointer;
         padding: 20.5px 0;
         margin: 16px 0 24px;
-        font-family: "Manrope", sans-serif;
         font-size: 20px;
-        color: #595959;
+        color: var(--color-secondary);
         transition: opacity 0.3s ease;
 
         &:hover {
@@ -73,6 +72,5 @@
 .error {
     text-align: center;
     padding: 40px;
-    font-family: "Manrope", sans-serif;
     font-size: 18px;
 }

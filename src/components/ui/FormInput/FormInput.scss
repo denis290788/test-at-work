@@ -4,7 +4,6 @@
     align-items: flex-start;
 
     label {
-        font-family: "Manrope", sans-serif;
         font-weight: 600;
         font-size: 18px;
         color: #000000;
@@ -22,12 +21,10 @@
 
     input {
         width: 100%;
-        max-width: 420px;
         height: 42px;
         padding: 0 40px 0 16px;
         border: 2px solid #dadada;
         border-radius: 50px;
-        font-family: "Manrope", sans-serif;
         font-size: 16px;
         transition: all 0.3s ease;
         background: #ffffff;
@@ -39,7 +36,7 @@
         }
 
         &::placeholder {
-            color: #9c9c9c;
+            color: var(--color-muted);
             font-weight: 400;
         }
     }
@@ -52,7 +49,7 @@
         background: none;
         border: none;
         font-size: 20px;
-        color: #9c9c9c;
+        color: var(--color-muted);
         cursor: pointer;
         width: 20px;
         height: 20px;
@@ -62,13 +59,12 @@
         transition: color 0.3s ease;
 
         &:hover {
-            color: #22a0bc;
+            color: var(--color-accent);
         }
     }
 }
 
 .error-message {
-    font-family: "Manrope", sans-serif;
     font-size: 12px;
     color: #ef4444;
     margin-top: 4px;
@@ -83,11 +79,10 @@
     }
 
     .input-wrapper {
-        width: 100%;
+        max-width: 100%;
 
         input {
             width: 100%;
-            max-width: 287px;
             font-size: 14px;
             padding: 0 36px 0 16px;
 

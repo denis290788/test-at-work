@@ -27,14 +27,14 @@
         cursor: pointer;
         border-radius: 6px;
         transition: color 0.3s ease;
-        color: #595959;
+        color: var(--color-secondary);
 
         &:hover {
-            color: #22a0bc;
+            color: var(--color-accent);
         }
 
         &:focus {
-            color: #22a0bc;
+            color: var(--color-accent);
         }
 
         svg {
@@ -69,7 +69,6 @@
     }
 
     &__username {
-        font-family: "Manrope", sans-serif;
         font-weight: 500;
         font-size: 16px;
         line-height: 1;

@@ -28,12 +28,12 @@
     background: none;
     border: none;
     font-size: 20px;
-    color: #9c9c9c;
+    color: var(--color-muted);
     cursor: pointer;
     transition: color 0.3s ease;
 
     &:hover {
-        color: #22a0bc;
+        color: var(--color-accent);
     }
 }
 
@@ -45,11 +45,10 @@
 }
 
 .modal-text {
-    font-family: "Manrope", sans-serif;
     font-weight: 600;
     font-size: 20px;
     text-align: center;
-    color: #595959;
+    color: var(--color-secondary);
 }
 
 @media (max-width: 767px) {

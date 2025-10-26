@@ -18,7 +18,7 @@
         }
 
         &.active {
-            color: #595959;
+            color: var(--color-secondary);
         }
 
         svg {
@@ -52,7 +52,7 @@
         border: none;
         text-align: left;
         cursor: pointer;
-        font-family: "Inter", sans-serif;
+        font-family: var(--font-secondary);
         font-size: 14px;
         color: #374151;
         border-radius: 6px;

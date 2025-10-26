@@ -1,6 +1,6 @@
 .user-form {
     flex: 1;
-    background: #fdfdfd;
+    background: var(--color-background);
     border-radius: 16px;
     padding: 40px;
     display: flex;
@@ -10,7 +10,6 @@
     min-width: 0;
 
     h1 {
-        font-family: "Manrope", sans-serif;
         font-weight: 600;
         font-size: 24px;
         color: #000000;
@@ -38,29 +37,28 @@
     height: 46px;
     padding: 12px 42px;
     border-radius: 50px;
-    font-family: "Manrope", sans-serif;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     border: none;
 
-    background: #161616;
-    color: #fdfdfd;
+    background: var(--color-primary);
+    color: var(--color-background);
 
     &:hover:not(.disabled) {
-        background: #f4f4f4;
-        color: #595959;
+        background: var(--color-background-page);
+        color: var(--color-secondary);
     }
 
     &.disabled {
         background: #dadada;
-        color: #9c9c9c;
+        color: var(--color-muted);
         cursor: not-allowed;
 
         &:hover {
             background: #dadada;
-            color: #9c9c9c;
+            color: var(--color-muted);
         }
     }
 }
@@ -68,7 +66,6 @@
 @media (max-width: 767px) {
     .user-form {
         width: 100%;
-        max-width: 343px;
         padding: 28px;
         gap: 20px;
 

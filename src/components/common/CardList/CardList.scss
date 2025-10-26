@@ -10,7 +10,6 @@
     }
 
     &__title {
-        font-family: "Manrope", sans-serif;
         font-weight: 600;
         font-size: 24px;
         line-height: 1.2;
@@ -26,19 +25,25 @@
 
     &__grid {
         display: grid;
-        justify-content: center;
-        gap: clamp(12px, 3vw, 40px);
-        grid-template-columns: repeat(2, minmax(162px, 1fr));
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 
-        @media (min-width: 768px) {
+        @media (max-width: 375px) {
+            grid-template-columns: repeat(2, 162px);
             justify-content: center;
-            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            justify-content: start;
         }
 
         @media (min-width: 1200px) {
-            justify-content: start;
             grid-template-columns: repeat(3, 360px);
             gap: 40px;
+            justify-content: start;
         }
     }
 }
